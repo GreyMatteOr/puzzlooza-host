@@ -28,6 +28,9 @@ Solve a puzzle with your friends online!
    - Once the tests are written, it is the responsibility of the code writer to ensure the tests are passing. So again, hold off until necessary
    
 ### High-quality Charts and Data Displays are premium!
+   - Use illustrations to map out user flows whenever possible. Include important state changes!
+   - Use charts to show Data-Structures and their underlying principles and help reason about them
+   - Refer to them while coding to keep the larger context in the forefront of mind
 
 ### Code-review is one of the best ways to develop, both for code-reading skills, but also as an opportunity for feedback
    - Be bold. If you have questions, this an amazing forum for that
