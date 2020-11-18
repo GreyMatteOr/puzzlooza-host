@@ -28,4 +28,18 @@ Solve a puzzle with your friends online!
    - Once the tests are written, it is the responsibility of the code writer to ensure the tests are passing. So again, hold off until necessary
    
 ### High-quality Charts and Data Displays are premium!
+
+### Code-review is one of the best ways to develop, both for code-reading skills, but also as an opportunity for feedback
+   - Be bold. If you have questions, this an amazing forum for that
+   - Be bold. If you have suggestions or feedback, provide it! Make sure to attempt a clear justification for your insight
+   - Be encouraging! If things are amazing, or awesome or cool, give a shout-out to what you like
+   - Peer-review is not mandatory, but try to make an effort to seek them out / offer them
+   
+## Git-Flow
+
+### Create a Feature Branch for each milestone.
+   - This will be a quazi-master branch. 
+   - Small improvements or enhancements will be merged into the feature branch. 
+   - When the milestone is complete or the code is at a stable point, we will merge it into main.
+   - Link the corresponding issues into the pull-requests. 
      
