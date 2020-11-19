@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const server = require('http').createServer(app);
-let users = [];
+let users = {};
 
 const io = require("socket.io")(server, {
   cors: {
@@ -15,16 +15,15 @@ app.use(express.json());
 app.use(cors());
 app.set('port', process.env.PORT || 3001);
 
-io.on( 'connect', ( socket ) => {
+io.on( 'connect', ( {id} ) => {
   console.log('A user has connected!');
-  users.push(socket.id)
-  console.log(`Current Users: ${users}`)
+  users[id] = {}
+  console.log(`Current Users: ${Object.keys(users)}`)
 
-  socket.on('disconnect', (socket) => {
+  socket.on('disconnect', ( {id} ) => {
     console.log('A user has disconnected!');
-    let i = users.indexOf(socket.id)
-    users.splice(i, 1);
-    console.log(`Current Users: ${users}`)
+    delete users[id]
+    console.log(`Current Users: ${Object.keys(users)}`)
   });
 });
 
