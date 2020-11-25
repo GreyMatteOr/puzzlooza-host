@@ -22,6 +22,10 @@ app.all('/', function(req, res, next) {
 
 io.on( "connect", ( socket ) => {
   console.log('A user has connected!');
+
+  socket.on( 'move', (groupID, newX, newY) => {
+    socket.broadcast.emit('move', groupID, newX, newY)
+  })
 })
 
 server.listen(app.get('port'), () => {
