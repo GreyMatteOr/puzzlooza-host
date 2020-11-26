@@ -15,9 +15,13 @@ app.use(express.json());
 app.use(cors());
 app.set('port', process.env.PORT || 3001);
 
-io.on( 'connect', ( {id} ) => {
+io.on( 'connect', ( socket ) => {
   console.log('A user has connected!');
-  users[id] = {};
+  users[socket.id] = {};
+
+  socket.on('combine', (group1ID, group2ID, joinTileID) => {
+    socket.broadcast.emit('combine', group1ID, group2ID, joinTileID);
+  });
 
   socket.on( 'move', (groupID, newX, newY) => {
     socket.broadcast.emit('move', groupID, newX, newY);
