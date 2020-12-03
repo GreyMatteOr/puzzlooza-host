@@ -13,7 +13,7 @@ const io = require("socket.io")(server, {
 
 app.use(express.json());
 app.use(cors());
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 3003);
 
 io.on( 'connect', ( socket ) => {
   console.log('A user has connected!');
@@ -23,13 +23,27 @@ io.on( 'connect', ( socket ) => {
     socket.broadcast.emit('combine', group1ID, group2ID, joinTileID);
   });
 
+  socket.on('getRoomData', () => {
+    let source = Object.keys(users).find( userID => userID !== socket.id );
+    if (source) return io.to(source).emit('dataRequest', socket.id)
+    io.to(socket.id).emit('newRoom')
+  });
+
+  socket.on('returnRoomData', (clientID, roomData) => {
+    io.to(clientID).emit('roomData', roomData)
+  })
+
   socket.on( 'move', (groupID, newX, newY) => {
     socket.broadcast.emit('move', groupID, newX, newY);
   });
 
-  socket.on('disconnect', ( {id} ) => {
-    console.log('A user has disconnected!');
-    delete users[id];
+  socket.on( 'rotate', (tileID, rotation) => {
+    socket.broadcast.emit('rotate', tileID, rotation);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('A user has disconnected! ID:', socket.id);
+    delete users[socket.id];
   });
 })
 
