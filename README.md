@@ -5,7 +5,7 @@ Solve a puzzle with your friends online!
 
  [Link to the Project Milestones](https://github.com/GreyMatteOr/puzzlooza-host/milestones)
  
- [Link to the Diagrams](https://excalidraw.com#room=350daa8d5e5864c98c8e,iNjjZIBHm1DI530Ko0-3Uw)
+ [Link to the Diagrams](https://excalidraw.com/#room=350daa8d5e5864c98c8e,iNjjZIBHm1DI530Ko0-3Uw)
 
 ## Project Norms
 
